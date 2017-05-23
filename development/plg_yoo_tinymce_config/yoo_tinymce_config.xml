@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.0" type="plugin" group="system">
+<extension version="3.0" type="plugin" group="system" method="upgrade">
 
 	<name>yoo_tinymce_config</name>
 	<author><%= author %></author>
@@ -13,6 +13,7 @@
 
 	<files>
 		<filename plugin="yoo_tinymce_config">yoo_tinymce_config.php</filename>
+		<folder>assets</folder>
 	</files>
 
 	<config>

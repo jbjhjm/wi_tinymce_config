@@ -44,12 +44,12 @@ module.exports = function(grunt) {
 	    },
 
 		copy: {
-			plugin: {
+			extension: {
 				files: [
 					{
 						expand: true,
 						dot: true,
-						cwd: '<%= meta.srcPath %>plg_<%= pkg.name %>/',
+						cwd: '<%= meta.srcPath %><%= pkg.name %>',
 						dest: '<%= meta.deployPath %>source/<%= pkg.name %>/',
 						src: [
 							'**/*.{js,json,css,less,svg,png,jpg,php,html,xml}'
@@ -67,21 +67,21 @@ module.exports = function(grunt) {
 					noProcess: ['**/*.{png,gif,jpg,ico,psd}'] // processing would corrupt image files.
 				}
 			},
-			// staging: {
-			// 	files: [
-			// 		{
-			// 			expand: true,
-			// 			dot: true,
-			// 			src: [ '**/*.*' ],
-			// 			cwd: '<%= meta.deployPath %>source/<%= pkg.name %>',
-			// 			dest: '<%= meta.stagePath %>templates/<%= pkg.name %>',
-			// 		}
-			// 	]
-			// }
+			staging: {
+				files: [
+					{
+						expand: true,
+						dot: true,
+						src: [ '**/*.*' ],
+						cwd: '<%= meta.deployPath %>source/<%= pkg.name %>',
+						dest: '<%= meta.stagePath %><%= pkg.stagePath %>',
+					}
+				]
+			}
 		},
 
 		compress: {
-			plugin: {
+			extension: {
 				options: {
 					mode: 'zip',
 					archive: '<%= meta.deployPath %><%= pkg.name %>-<%= pkg.version %>.zip'
@@ -95,14 +95,18 @@ module.exports = function(grunt) {
 			},
 		},
 
-		// watch: {
-		// 	stage : {
-		// 		// don't include all dirs as this would include node_modules too!
-		// 		// or use !**/node_modules/** to exclude dir
-		// 		files: ['<%= meta.srcPath %>template/**/*'],
-		// 		tasks: ['clean:deployDir' , 'copy:template', 'copy:staging']
-		// 	}
-		// }
+		watch: {
+			release : {
+				// don't include all dirs as this would include node_modules too!
+				// or use !**/node_modules/** to exclude dir
+				files: ['<%= meta.srcPath %><%= pkg.name %>/**/*'],
+				tasks: ['clean:deployDir' , 'copy:extension', 'compress:extension' ]
+			},
+			stage : {
+				files: ['<%= meta.srcPath %><%= pkg.name %>/**/*'],
+				tasks: ['clean:deployDir' , 'copy:extension', 'copy:staging' ]
+			},
+		}
 	});
 
 	// These plugins provide necessary tasks.
@@ -113,13 +117,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 
 	// Default task
-	// grunt.registerTask('default', [ 'copy' ]);
-	grunt.registerTask('release', [ 'clean:deployDir' , 'copy:plugin' , 'compress:plugin' ]);
-	// grunt.registerTask('stage', [ 'clean:deployDir' , 'copy:template' , 'copy:staging' ]);
+	grunt.registerTask('release', [ 'clean:deployDir' , 'copy:extension' , 'compress:extension' ]);
+	grunt.registerTask('stage', [ 'clean:deployDir' , 'copy:extension' , 'copy:staging' ]);
+
 	grunt.registerTask('default', function() {
 		console.log('Choose one of the registered tasks:');
-		console.log('release - compile plugin and create a zip file');
-		// console.log('stage / watch:stage - compile template and copy to stage');
+		console.log('release / watch:release - compile extension and create a zip file');
+		console.log('stage / watch:stage - compile extension and copy to stage');
 	});
 
 };
