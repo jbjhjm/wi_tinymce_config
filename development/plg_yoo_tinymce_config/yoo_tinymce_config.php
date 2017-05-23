@@ -10,6 +10,7 @@ class plgSystemYoo_tinymce_config extends JPlugin
 	function onAfterDispatch()
 	{
 		$app = JFactory::GetApplication();
+		$doc = JFactory::GetDocument();
 
 		if($app->isAdmin()) {
 
@@ -54,9 +55,14 @@ class plgSystemYoo_tinymce_config extends JPlugin
 				},{$customSetup});
 			}
 			";
+			$doc->addScriptDeclaration($js);
 
 
-			JFactory::GetDocument()->addScriptDeclaration($js);
+			$css = "
+			.com_zoo div.repeat-elements li.repeatable-element div.repeatable-content { float:none; }
+			";
+			$doc->addStyleDeclaration($css);
+
 		}
 	}
 
