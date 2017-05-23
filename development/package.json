@@ -1,0 +1,28 @@
+{
+	"name": "yoo_tinymce_config",
+	"version": "0.0.1",
+	"copyright": "Jannik Mewes / YOOlabs GmbH",
+
+	"author": "Jannik Mewes",
+	"author_email": "jannik.mewes@yoolabs.com",
+	"author_url": "http://yoolabs.com",
+	"license": "http://www.gnu.org/copyleft/gpl.html GNU/GPL",
+
+	"prefix": "ytmce",
+	"id": "yoo_tinymce_config",
+	"camel": "yooTinyMCEConfig",
+	"title": "YOOlabs TinyMCE Config Plugin",
+	"descr": "Customized TinyMCE Setup via Joomla plugin",
+
+	"devDependencies": {
+		"grunt": "~0.4.1",
+		"grunt-contrib-copy": "~1.0.0",
+		"grunt-contrib-concat": "~1.0.1",
+		"grunt-contrib-compress": "~1.4.1",
+        "grunt-contrib-cssmin" : "~2.0.0",
+        "grunt-contrib-watch" : "~1.0.0",
+        "grunt-contrib-less" : "~1.4.1",
+        "grunt-contrib-uglify" : "~2.3.0",
+        "grunt-contrib-clean" : "~1.1.0"
+	}
+}
