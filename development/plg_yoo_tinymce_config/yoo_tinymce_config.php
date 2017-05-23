@@ -21,8 +21,16 @@ class plgSystemYoo_tinymce_config extends JPlugin
 			$assetsPath = '/plugins/system/yoo_tinymce_config/assets/';
 
 			$customSetup = "{}";
-			if(file_exists(JPATH_ROOT . $assetsPath . 'tinymce.json')) {
-				$customSetup = file_get_contents(JPATH_ROOT . $assetsPath . 'tinymce.json');
+
+			if(file_exists(JPATH_ROOT . $templatePath.'css/tinymce.json')) {
+				$jsonFile = $templatePath.'css/tinymce.json';
+			} else if(file_exists(JPATH_ROOT . $assetsPath.'tinymce.json')) {
+				$jsonFile = $assetsPath.'tinymce.json';
+			} else {
+				$jsonFile = false;
+			}
+			if($jsonFile) {
+				$customSetup = file_get_contents(JPATH_ROOT . $jsonFile);
 				if(!is_object(json_decode($customSetup))) $customSetup = "{_error:'invalid json data!'}";
 			}
 
