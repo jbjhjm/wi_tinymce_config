@@ -1,6 +1,5 @@
 
 {
-	"preview_styles" : "font-family font-size font-weight font-style text-decoration text-transform color",
 	"block_formats" : "Paragraph=p; Header 1=h1; Header 2=h2; Header 3=h3",
 	"style_formats" : [
 		{"title": "Bold text", "inline": "b"},
