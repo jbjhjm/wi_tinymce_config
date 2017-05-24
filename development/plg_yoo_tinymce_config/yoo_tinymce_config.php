@@ -50,9 +50,16 @@ class plgSystemYoo_tinymce_config extends JPlugin
 			if(tinyMCEoptions) {
 				tinyMCEoptions.tinyMCE.default = jQuery.extend(tinyMCEoptions.tinyMCE.default,{
 					{$cssFile}
-					plugins : 'autolink,lists,save,colorpicker,paste,link,code,image,wordcount,autosave,contextmenu',
+					plugins : 'autolink,lists,colorpicker,paste,link,code,image,wordcount,autosave,contextmenu',
 					preview_styles : 'font-family font-size font-weight font-style text-decoration text-transform color',
 					forced_root_block : false,
+					setup : function(editor) {
+						editor.on('init', function () {
+							// this.addShortcut('alt+shift+m', '', function () {});
+							this.shortcuts.remove('ctrl+s');
+							this.shortcuts.remove('esc');
+						});
+					}
 				},{$customSetup});
 			}
 			";
