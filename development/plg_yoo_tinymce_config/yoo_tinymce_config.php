@@ -50,8 +50,9 @@ class plgSystemYoo_tinymce_config extends JPlugin
 			if(tinyMCEoptions) {
 				tinyMCEoptions.tinyMCE.default = jQuery.extend(tinyMCEoptions.tinyMCE.default,{
 					{$cssFile}
-					plugins : 'autolink,lists,save,colorpicker,link,code,paste,wordcount,autosave,contextmenu',
+					plugins : 'autolink,lists,save,colorpicker,paste,link,code,image,wordcount,autosave,contextmenu',
 					preview_styles : 'font-family font-size font-weight font-style text-decoration text-transform color',
+					forced_root_block : false,
 				},{$customSetup});
 			}
 			";
@@ -59,7 +60,7 @@ class plgSystemYoo_tinymce_config extends JPlugin
 
 
 			$css = "
-			.com_zoo div.repeat-elements li.repeatable-element div.repeatable-content { float:none; }
+			.com_zoo div.repeat-elements li.repeatable-element div.repeatable-content { float:left; width: 97%; }
 			";
 			$doc->addStyleDeclaration($css);
 
