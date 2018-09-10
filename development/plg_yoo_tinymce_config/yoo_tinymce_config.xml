@@ -17,5 +17,13 @@
 	</files>
 
 	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="enable_frontend" type="radio" class="btn-group btn-group-yesno" default="0" label="Enable in frontend" description="">
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+			</fieldset>
+		</fields>
 	</config>
 </extension>

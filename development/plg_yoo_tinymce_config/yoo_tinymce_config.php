@@ -8,12 +8,21 @@
 class plgSystemYoo_tinymce_config extends JPlugin
 {
 
+	function __construct(&$subject, $config)
+	{
+		parent::__construct($subject, $config);
+		// $this->_plugin = JPluginHelper::getPlugin( 'system', 'yoo_tinymce_config' );
+		// $this->_params = new JRegistry( $this->_plugin->params );
+	}
+
 	function onAfterDispatch()
 	{
 		$app = JFactory::GetApplication();
 		$doc = JFactory::GetDocument();
 
-		if($app->isAdmin()) {
+		$enable_frontend = $this->params->get('enable_frontend', '0') == '1';
+
+		if($enable_frontend || $app->isAdmin()) {
 
 			$db = JFactory::GetDbo();
 			$db->setQuery('SELECT template FROM #__template_styles WHERE client_id=0 AND home=1');
