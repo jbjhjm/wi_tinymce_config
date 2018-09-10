@@ -1,5 +1,14 @@
 <?php
-<%= phpbanner %>
+/*!
+  * @package    plg_yoo_tinymce_config
+ * @version    0.3.1
+ * @date       2017-05-24
+ * @author     Jannik Mewes
+ * @copyright  Copyright (c) 2017 Jannik Mewes / YOOlabs GmbH
+ */
+
+ defined('_JEXEC') or die;
+
 
 // jimport( 'joomla.plugin.plugin');
 // jimport( 'joomla.html.parameter');
@@ -50,7 +59,7 @@ class plgSystemYoo_tinymce_config extends JPlugin
 			if(tinyMCEoptions) {
 				tinyMCEoptions.tinyMCE.default = jQuery.extend(tinyMCEoptions.tinyMCE.default,{
 					{$cssFile}
-					plugins : 'autolink,lists,colorpicker,paste,link,code,image,wordcount,autosave,codesample,contextmenu',
+					plugins : 'autolink,lists,colorpicker,paste,link,code,image,wordcount,charmap,autosave,textcolor,codesample,contextmenu',
 					codesample_languages: [
 						{text: 'HTML/XML', value: 'markup'},
 						{text: 'JavaScript', value: 'javascript'},
