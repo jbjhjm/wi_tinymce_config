@@ -50,7 +50,19 @@ class plgSystemYoo_tinymce_config extends JPlugin
 			if(tinyMCEoptions) {
 				tinyMCEoptions.tinyMCE.default = jQuery.extend(tinyMCEoptions.tinyMCE.default,{
 					{$cssFile}
-					plugins : 'autolink,lists,colorpicker,paste,link,code,image,wordcount,autosave,contextmenu',
+					plugins : 'autolink,lists,colorpicker,paste,link,code,image,wordcount,autosave,codesample,contextmenu',
+					codesample_languages: [
+						{text: 'HTML/XML', value: 'markup'},
+						{text: 'JavaScript', value: 'javascript'},
+						{text: 'CSS', value: 'css'},
+						{text: 'PHP', value: 'php'},
+						{text: 'Ruby', value: 'ruby'},
+						{text: 'Python', value: 'python'},
+						{text: 'Java', value: 'java'},
+						{text: 'C', value: 'c'},
+						{text: 'C#', value: 'csharp'},
+						{text: 'C++', value: 'cpp'}
+					],
 					preview_styles : 'font-family font-size font-weight font-style text-decoration text-transform color',
 					forced_root_block : false,
 					setup : function(editor) {
