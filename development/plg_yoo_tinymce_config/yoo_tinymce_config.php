@@ -1,13 +1,5 @@
 <?php
-/*!
-  * @package    plg_yoo_tinymce_config
- * @version    0.3.1
- * @date       2017-05-24
- * @author     Jannik Mewes
- * @copyright  Copyright (c) 2017 Jannik Mewes / YOOlabs GmbH
- */
-
- defined('_JEXEC') or die;
+<%= phpbanner %>
 
 
 // jimport( 'joomla.plugin.plugin');
