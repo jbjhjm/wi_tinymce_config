@@ -102,6 +102,12 @@ module.exports = function(grunt) {
 				files: ['<%= meta.srcPath %><%= pkg.name %>/**/*'],
 				tasks: ['clean:deployDir' , 'copy:extension', 'compress:extension' ]
 			},
+			build : {
+				// don't include all dirs as this would include node_modules too!
+				// or use !**/node_modules/** to exclude dir
+				files: ['<%= meta.srcPath %><%= pkg.name %>/**/*'],
+				tasks: ['clean:deployDir' , 'copy:extension', 'compress:extension' ]
+			},
 			stage : {
 				files: ['<%= meta.srcPath %><%= pkg.name %>/**/*'],
 				tasks: ['clean:deployDir' , 'copy:extension', 'copy:staging' ]
@@ -118,11 +124,12 @@ module.exports = function(grunt) {
 
 	// Default task
 	grunt.registerTask('release', [ 'clean:deployDir' , 'copy:extension' , 'compress:extension' ]);
+	grunt.registerTask('build', [ 'clean:deployDir' , 'copy:extension' , 'compress:extension' ]);
 	grunt.registerTask('stage', [ 'clean:deployDir' , 'copy:extension' , 'copy:staging' ]);
 
 	grunt.registerTask('default', function() {
 		console.log('Choose one of the registered tasks:');
-		console.log('release / watch:release - compile extension and create a zip file');
+		console.log('build / watch:build / release / watch:release - compile extension and create a zip file');
 		console.log('stage / watch:stage - compile extension and copy to stage');
 	});
 
