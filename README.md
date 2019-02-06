@@ -1,4 +1,4 @@
-# YOO TinyMCE config plugin
+# WI TinyMCE config plugin
 
 A Joomla 3 system plugin adding more power to the tinyMCE editor.
 It's recommended to use it together with [YOO Base template](https://github.com/jbjhjm/yoo_base/tree/v2).
@@ -9,7 +9,7 @@ It's recommended to use it together with [YOO Base template](https://github.com/
 
 # Building
 Make sure [NodeJS](https://nodejs.org/en/download/) is installed, then download or clone the repository: 
-`git clone https://github.com/jbjhjm/yoo_tinymce_config.git`
+`git clone https://github.com/jbjhjm/wi_tinymce_config.git`
 
 Change to development directory and run `npm install`.
 
