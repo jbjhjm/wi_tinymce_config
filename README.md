@@ -1,7 +1,6 @@
 # WI TinyMCE config plugin
 
-A Joomla 3 system plugin adding more power to the tinyMCE editor.
-It's recommended to use it together with [YOO Base template](https://github.com/jbjhjm/yoo_base/tree/v2).
+A Joomla 4 system plugin adding more power to the tinyMCE editor.
 
 # Features:
 1. Search for [current_template]/css/tinymce.css and, if found, add it as editor stylesheet when tinyMCE is used. This allows the user to see the true colors, sizes and fonts while creating their text contents.
