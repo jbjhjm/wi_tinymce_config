@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="3.0" type="plugin" group="system" method="upgrade">
+<extension version="4.0" type="plugin" group="system" method="upgrade">
 
 	<name>yoo_tinymce_config</name>
 	<author><%= author %></author>
